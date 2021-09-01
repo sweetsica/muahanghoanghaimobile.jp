@@ -7,7 +7,7 @@ Công cụ theo dõi hiệu quả marketing dựa trên đường dẫn truy c�
 
 ## Tạo bởi Sweetsica
 
-- [@katherinepeterson](https://github.com/sweetsica)
+- [@sweetsica](https://github.com/sweetsica)
 
   
 ![Logo](https://hoanghaimobile.jp/images/logo.png)
