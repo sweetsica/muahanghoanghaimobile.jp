@@ -3,6 +3,22 @@
 <head>
     @if(View::hasSection('css'))
         @yield("css")
+        <style>
+            body, label, h4, th{
+                font-family: "Arial"!important;
+            }
+            .btn-custom {
+                background-color: #c51e2c!important;
+                border-color: #c51e2c!important;
+            }
+            .page-item.active .page-link{
+                background-color: #c51e2c!important;
+                border-color: #c51e2c!important;
+            }
+            #sidebar-menu > ul > li > a.mm-active{
+                color: #c51e2c!important;
+            }
+        </style>
     @else
         <meta charset="utf-8" />
         <title>Hoàng Hải Company - Short Url</title>
@@ -58,9 +74,7 @@
         @yield('left-sidebar')
 @else
         <div class="left side-menu">
-
             <div class="slimscroll-menu" id="remove-scroll">
-
                 <!-- LOGO -->
                 <div class="topbar-left" style="padding-left: 0px">
                     <a href="{{route('shortlink')}}" class="logo">
@@ -72,7 +86,6 @@
                         </i>
                     </a>
                 </div>
-
                 <!-- User box -->
                 <div class="user-box">
                     <div class="user-img">
@@ -81,35 +94,32 @@
                     <h5><a href="#">Admin</a> </h5>
                     <p class="text-muted">Tạo shortlink</p>
                 </div>
-
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
-
                     <ul class="metismenu" id="side-menu">
-
                         <!--<li class="menu-title">Navigation</li>-->
-
-                        <li>
-                            <a href="{{route('shortlink')}}">
-                                <i class="fi-layers"></i><span class="badge badge-danger badge-pill float-right">1</span> <span> Short Link </span>
+                        <li class="{{request()->is('dashboard') ? 'mm-active' :''}}"}}>
+                            <a href="{{route('dashboard')}}" {{request()->is('dashboard') ? 'mm-active' :''}}">
+                                <i class="fi-layers"></i><span class="badge badge-danger badge-pill float-right">1</span> <span> Dashboard </span>
                             </a>
                         </li>
-
-                        <li>
-                            <a href="{{route('visitor.manage')}}">
-                                <i class="fi-bar-graph-2"></i><span class="badge badge-danger badge-pill float-right">1</span> <span> Visitor </span>
+                        <li class="{{request()->is('generate-shorten-link') ? 'mm-active' :''}}"}}>
+                            <a href="{{route('shortlink')}}" class="{{request()->is('generate-shorten-link') ? 'mm-active' :''}}">
+                                <i class="fi-layers"></i><span class="badge badge-danger badge-pill float-right">2</span> <span> Short Link </span>
+                            </a>
+                        </li>
+                        <li class="{{request()->is('visitor-manage') ? 'mm-active' :''}}"}}>
+                            <a href="{{route('visitor.manage')}}" class="{{request()->is('visitor-manage') ? 'mm-active' :''}}">
+                                <i class="fi-bar-graph-2"></i><span class="badge badge-danger badge-pill float-right">3</span> <span> Visitor </span>
                             </a>
                         </li>
                     </ul>
 
                 </div>
                 <!-- Sidebar -->
-
                 <div class="clearfix"></div>
-
             </div>
             <!-- Sidebar -left -->
-
         </div>
 @endif
     <!-- Left Sidebar End -->
@@ -119,7 +129,11 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
+@if(View::hasSection('content-page'))
     @yield('content-page')
+@else
+    404 NOT FOUND
+@endif
 
     <!-- ============================================================== -->
     <!-- End Right content here -->
@@ -135,7 +149,7 @@
 @if(View::hasSection('js'))
     @yield("js")
 @else
-    <!-- jQuery  -->
+        <!-- jQuery  -->
         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('assets/js/metisMenu.min.js')}}"></script>

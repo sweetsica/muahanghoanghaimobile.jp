@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LinkManage;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
+use Analytics;
+use Carbon\Carbon;
+use Spatie\Analytics\Period;
 
 class VisitorController extends Controller
 {
@@ -17,10 +21,60 @@ class VisitorController extends Controller
         $data=Visitor::latest()->take(100)->get();
         return view('back-end/visitor/manage-visitor',compact('data'));
     }
-    public function index2()
-    {
 
-        return view('back-end/visitor/demo');
+//    https://supermetrics.com/api/getFields?ds=GA&fieldType=dim
+//    https://developers.google.com/analytics/devguides/reporting/data/v1/migration-api-schema-mapping#session
+//    https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema
+    public function dashboard()
+    {
+        $startDate = Carbon::yesterday();
+        $endDate = Carbon::now();
+        $analyticsData['city'] = Analytics::performQuery(
+            Period::days(7),
+            'ga:sessions',
+            [
+                'dimensions'=>'ga:city',
+                'metrics'=>'ga:sessions',
+                'sort'=>'-ga:sessions',
+                'max-results'=>'10'
+            ]
+        );
+        $analyticsData['screenPageViews'] = Analytics::performQuery(
+            Period::days(7),
+            'ga:sessions',
+            [
+                'dimensions'=>'ga:PagePath',
+                'metrics'=>'ga:sessions',
+                'sort'=>'-ga:sessions',
+                'max-results'=>'10'
+            ]
+        );
+        $analyticsData['VisitorType'] = Analytics::performQuery(
+            Period::days(1),
+            'ga:sessions',
+            [
+                'dimensions'=>'ga:PagePath',
+                'metrics'=>'ga:sessions',
+                'sort'=>'-ga:sessions',
+                'max-results'=>'10'
+            ]
+        );
+
+        $analyticsData_VisitCount = Analytics::performQuery(
+            Period::days(1),
+            'ga:sessions',
+            [
+                'dimensions'=>'ga:VisitCount',
+                'metrics'=>'ga:sessions',
+                'sort'=>'-ga:sessions',
+                'max-results'=>'10'
+            ]
+        );
+        $analyticsData['VisitCount'] = $analyticsData_VisitCount['totalsForAllResults']['ga:sessions'];
+
+        $analyticsData['top_referrers_today'] = Analytics::fetchTopReferrers(Period::days(7))->take(10);
+        $analyticsData['VisitorCollect'] = LinkManage::with('ShortLink')->withCount('todayVisitors','yesterdayVisitors')->latest()->take(10)->get();
+        return view('back-end/dashboard',compact('analyticsData'));
     }
 
     public function FilterDate(Request $dayfrom,$dayto)

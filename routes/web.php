@@ -20,8 +20,10 @@ use App\Http\Controllers\VisitorController;
 
 Route::get('/','App\Http\Controllers\UserController@getLogin');
 
-Route::get('generate-shorten-link', [ShortLinkController::class,'index'])->name('shortlink');
-Route::post('generate-shorten-link', [ShortLinkController::class,'store'])->name('generate-shorten-link.post');
+Route::get('/dashboard','App\Http\Controllers\VisitorController@dashboard')->name('dashboard');
+
+Route::get('/generate-shorten-link', [ShortLinkController::class,'index'])->name('shortlink');
+Route::post('/generate-shorten-link', [ShortLinkController::class,'store'])->name('generate-shorten-link.post');
 
 //create account with email and username
 //Route::get('/register','App\Http\Controllers\UserController@getRegister');

@@ -114,9 +114,9 @@
                                     <tr>
                                         <td>{{ $row->id }}</td>
                                         <td>{{ $row->visitor_clicked }}</td>
-                                        <td>{{ $row->vistor_platform }}</td>
-                                        <td>{{ $row->vistor_browser }}</td>
-                                        <td>{{ $row->vistor_linkfrom }}</td>
+                                        <td>{{ $row->visitor_platform }}</td>
+                                        <td>{{ $row->visitor_browser }}</td>
+                                        <td>{{ $row->visitor_linkfrom }}</td>
                                         <td>{{ $row->created_at->format('d-m-Y') }}</td>
                                     </tr>
                                 @endforeach
