@@ -21,8 +21,7 @@ class ShortLinkController extends Controller
 
     public function index()
     {
-//        dd(Visitor::whereDate('created_at',Carbon::today())->get(),Carbon::today());
-        $link_datas = LinkManage::with('ShortLink')->withCount('todayVisitors','yesterdayVisitors')->latest()->take(100)->get();
+        $link_datas = LinkManage::with('ShortLink')->withCount('totalVisitors','yesterdayVisitors')->latest()->take(100)->get();
         return view('back-end/link/manage-link', compact('link_datas'));
     }
 

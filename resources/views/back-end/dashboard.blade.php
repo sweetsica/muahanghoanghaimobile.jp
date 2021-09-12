@@ -1,7 +1,7 @@
 @extends('back-end.template.master')
 @section('css')
     <meta charset="utf-8" />
-    <title>Highdmin - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Hoàng Hải JP - Theo dõi lưu lượng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -54,6 +54,10 @@
         <!-- Top Bar Start -->
         <div class="topbar">
             <nav class="navbar-custom">
+                <div class="list-unstyled float-right topbar-right-menu  mb-0">
+                    <li style="padding-right: 5%"><i class="mdi mdi-airplay"></i> Giờ máy chủ: {{\App\Traits\VisitorTriat::time_now()->format('H m s')}} </li>
+                    <li><i class="mdi mdi-alarm"></i> Giờ Nhật Bản:{{\App\Traits\VisitorTriat::time_now2()->format('H m s')}} </li>
+                </div>
 
                 <ul class="list-inline menu-left mb-0">
                     <li class="float-left">
@@ -64,6 +68,8 @@
                     <li>
                         <div class="page-title-box">
                             <h4 class="page-title">Trang chủ </h4>
+{{--                            <p>Giờ máy chủ: {{\App\Traits\VisitorTriat::time_now()}}</p>--}}
+{{--                            <p>Giờ Nhật Bản: {{\App\Traits\VisitorTriat::time_now2()}}</p>--}}
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active">Welcome to Hoàng Hải JP admin panel !</li>
                             </ol>
@@ -222,13 +228,12 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-{{--                                    @dd($analyticsData['VisitorCollect'])--}}
                                     @foreach($analyticsData['VisitorCollect'] as $key => $data)
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$data['name_camp']}}</td>
                                             <td>{{$data['link_final']}}</td>
-                                            <td>{{$data['today_visitors_count']}}</td>
+                                            <td>{{$data['total_visitors_count']}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -241,7 +246,7 @@
             </div> <!-- container -->
         </div> <!-- content -->
         <footer class="footer">
-            2018 - 2019 © Highdmin. <span class="d-none d-sm-inline-block"> - Coderthemes.com</span>
+            2021 © Sweetsica</span>
         </footer>
     </div>
 @endsection

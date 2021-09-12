@@ -73,7 +73,7 @@ class VisitorController extends Controller
         $analyticsData['VisitCount'] = $analyticsData_VisitCount['totalsForAllResults']['ga:sessions'];
 
         $analyticsData['top_referrers_today'] = Analytics::fetchTopReferrers(Period::days(7))->take(10);
-        $analyticsData['VisitorCollect'] = LinkManage::with('ShortLink')->withCount('todayVisitors','yesterdayVisitors')->latest()->take(10)->get();
+        $analyticsData['VisitorCollect'] = LinkManage::with('ShortLink')->withCount('totalVisitors','yesterdayVisitors')->latest()->take(10)->get();
         return view('back-end/dashboard',compact('analyticsData'));
     }
 

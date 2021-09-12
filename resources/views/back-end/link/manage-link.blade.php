@@ -116,20 +116,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="hori-pass2" class="col-4 col-form-label">Id chiến dịch<span
+                                        <label for="hori-pass2" class="col-4 col-form-label">Hậu tố 1<span
                                                 class="text-danger">*</span></label>
                                         <div class="col-7">
                                             <input type="text" name="path1" required class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="hori-pass2" class="col-4 col-form-label">Id nhóm</label>
+                                        <label for="hori-pass2" class="col-4 col-form-label">Hậu tố 2</label>
                                         <div class="col-7">
                                             <input type="text" name="path2" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="hori-pass2" class="col-4 col-form-label">Id quảng cáo</label>
+                                        <label for="hori-pass2" class="col-4 col-form-label">Hậu tố 3</label>
                                         <div class="col-7">
                                             <input type="text" name="path3" class="form-control">
                                         </div>
@@ -160,8 +160,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Số người truy cập</th>
-                                    <th>Tăng trưởng 24h</th>
+                                    <th>Tổng số truy cập</th>
+                                    <th>Số người truy cập hôm qua</th>
                                     <th>Short Url</th>
                                     <th>Ngày tạo</th>
 {{--                                    <th>Action</th>--}}
@@ -173,8 +173,8 @@
                                             <tr>
                                                 <td>{{ $row->id }}</td>
                                                 <td>{{ $row->name_camp }}</td>
-                                                <th>{{ $row->today_visitors_count }}</th>
-                                                <th>{{$row->yesterday_visitors_count}}</th>
+                                                <th>{{$row->total_visitors_count}}</th>
+                                                <th>{{ $row->yesterday_visitors_count }}</th>
                                                 <td><a href="{{$row->ShortLink->code}}">{{$_SERVER['SERVER_NAME']}}/{{$row->ShortLink->code}}</a></td>
 {{--                                                <td><a href="{{route('shortlink.delete',['id'=>$row->id])}}" data-method="delete" data-confirm="Are you sure to delete this inventory?">-- Xoá --</a></td>--}}
                                                 <th>{{ $row->created_at->format('d/m/Y') }}</th>

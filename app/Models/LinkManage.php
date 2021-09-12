@@ -30,9 +30,9 @@ class LinkManage extends Model
         return $this->hasMany(Visitor::class, 'visitor_clicked', 'link_final');
     }
 
-    public function todayVisitors()
+    public function totalVisitors()
     {
-        return $this->hasMany(Visitor::class, 'visitor_clicked', 'link_final')->whereDate('created_at', Carbon::today());
+        return $this->hasMany(Visitor::class, 'visitor_clicked', 'link_final');
     }
 
     public function yesterdayVisitors(){
