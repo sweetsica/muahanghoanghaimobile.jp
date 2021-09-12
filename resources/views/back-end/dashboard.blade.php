@@ -68,8 +68,6 @@
                     <li>
                         <div class="page-title-box">
                             <h4 class="page-title">Trang chủ </h4>
-{{--                            <p>Giờ máy chủ: {{\App\Traits\VisitorTriat::time_now()}}</p>--}}
-{{--                            <p>Giờ Nhật Bản: {{\App\Traits\VisitorTriat::time_now2()}}</p>--}}
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active">Welcome to Hoàng Hải JP admin panel !</li>
                             </ol>
@@ -130,9 +128,8 @@
 
                 <div class="row">
                     <div class="col-xl-6">
-                        <div class="card-box">
-                            <h4 class="header-title mb-3">Top 10 đường link được truy cập nhiều nhất</h4>
-
+                        <div class="card-box ribbon-box">
+                            <div class="ribbon ribbon-custom"><h4>Top 10 đường link được truy cập nhiều nhất</h4></div>
                             <div class="table-responsive">
                                 <table class="table table-hover table-centered m-0">
                                     <thead>
@@ -159,9 +156,8 @@
                     </div>
 
                     <div class="col-xl-6">
-                        <div class="card-box">
-                            <h4 class="header-title mb-3">Top 10 thành phố được truy cập nhiều nhất</h4>
-
+                        <div class="card-box ribbon-box">
+                            <div class="ribbon ribbon-pink"><h4>Top 10 thành phố được truy cập nhiều nhất</h4></div>
                             <div class="table-responsive">
                                 <table class="table table-hover table-centered m-0">
                                     <thead>
@@ -189,8 +185,8 @@
                     </div>
 
                     <div class="col-xl-6">
-                        <div class="card-box">
-                            <h4 class="header-title mb-3">Top 10 trang được truy cập nhiều nhất</h4>
+                        <div class="card-box ribbon-box">
+                            <div class="ribbon ribbon-success"><h4>Top 10 trang được truy cập nhiều nhất</h4></div>
                             <div class="table-responsive">
                                 <table class="table table-hover table-centered m-0">
                                     <thead>
@@ -215,8 +211,8 @@
                     </div>
 
                     <div class="col-xl-6">
-                        <div class="card-box">
-                            <h4 class="header-title mb-3">10 Trang link rút gọn gần đây</h4>
+                        <div class="card-box ribbon-box">
+                            <div class="ribbon ribbon-purple"><h4>10 Trang link rút gọn gần đây</h4></div>
                             <div class="table-responsive">
                                 <table class="table table-hover table-centered m-0">
                                     <thead>
