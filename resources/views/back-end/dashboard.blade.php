@@ -80,9 +80,6 @@
 
         </div>
         <!-- Top Bar End -->
-
-
-
         <!-- Start Page content -->
         <div class="content">
             <div class="container-fluid">
@@ -91,34 +88,30 @@
                         <div class="card-box">
                             <h4 class="header-title mb-4">Tổng quan 24h</h4>
                             <div class="row">
+                                {{--block 1--}}
                                 <div class="col-md-6  col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Lượng truy cập</p>
-                                            <h3 class="">{{$analyticsData['VisitCount']}}</h3>
-                                        </div>
-
+                                    <div class="card-box widget-flat border-custom bg-custom text-white">
+                                        <i class="fi-tag"></i>
+                                        <h3 class="m-b-10">{{$analyticsData['VisitCount']}}</h3>
+                                        <p class="text-uppercase m-b-5 font-13 font-600">Lượng truy cập</p>
                                     </div>
                                 </div>
+                                {{--block 2--}}
                                 <div class="col-md-6  col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Lượng truy cập mới</p>
-                                            <h3 class="">{{$analyticsData['VisitorType']['0']['1']}}</h3>
-                                        </div>
-
+                                    <div class="card-box bg-primary widget-flat border-primary text-white">
+                                        <i class="fi-archive"></i>
+                                        <h3 class="m-b-10">{{$analyticsData['VisitorType']['0']['1']}}</h3>
+                                        <p class="text-uppercase m-b-5 font-13 font-600">Lượng truy cập mới</p>
                                     </div>
                                 </div>
+                                {{--block 3--}}
                                 <div class="col-md-6  col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Lượng truy cập trở lại</p>
-                                            <h3 class="">{{$analyticsData['VisitorType']['1']['1']}}</h3>
-                                        </div>
-
+                                    <div class="card-box widget-flat border-success bg-success text-white">
+                                        <i class="fi-help"></i>
+                                        <h3 class="m-b-10">{{$analyticsData['VisitorType']['1']['1']}}</h3>
+                                        <p class="text-uppercase m-b-5 font-13 font-600">Lượng truy cập trở lại</p>
                                     </div>
                                 </div>
-
                             </div>
                             <!-- end row -->
                         </div>
@@ -184,7 +177,7 @@
 
                     </div>
 
-                    <div class="col-xl-6">
+                    <div class="col-xl-12">
                         <div class="card-box ribbon-box">
                             <div class="ribbon ribbon-success"><h4>Top 10 trang được truy cập nhiều nhất</h4></div>
                             <div class="table-responsive">
@@ -210,7 +203,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6">
+                    <div class="col-xl-12">
                         <div class="card-box ribbon-box">
                             <div class="ribbon ribbon-purple"><h4>10 Trang link rút gọn gần đây</h4></div>
                             <div class="table-responsive">

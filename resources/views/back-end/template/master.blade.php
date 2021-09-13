@@ -92,7 +92,7 @@
                         <img src="{{asset('assets/images/users/avatar-1.jpg')}}" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                     </div>
                     <h5><a href="#">Admin</a> </h5>
-                    <p class="text-muted">Tạo shortlink</p>
+                    <p class="text-muted">Hoàng Hải Analytics</p>
                 </div>
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
